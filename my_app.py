@@ -8,6 +8,8 @@ def translate(word):
     word = word.lower()
     if word in data:
         return data[word]
+    elif word.title() in data:  # if user entered "paris"
+        return data[word.title()]
     elif len(get_close_matches(word, data.keys())) > 0:
         answer = input("Did you mean %s instead? Write [y/n]\n" % get_close_matches(word, data.keys())[0])
         answer = answer.lower()
